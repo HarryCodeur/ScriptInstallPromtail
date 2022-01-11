@@ -339,11 +339,11 @@ case $Choice in
 esac
 echo
 
-echo -e "\e[34;1mEnter an ip address other than 10.10.10.214 ? \e[0m[\e[91;1mN\e[0m/\e[92;1my\e[0m]\e[0m"
+echo -e "\e[34;1mEnter an ip address other than 127.0.0.1 ? \e[0m[\e[91;1mN\e[0m/\e[92;1my\e[0m]\e[0m"
 read ChoiceIPServer
 case $ChoiceIPServer in
   n|N|NO|No|no|"") 
-     IPServer="10.10.10.214"
+     IPServer="127.0.0.1"
      export IPServer
      ;;
   y|Y|yes|YES|Yes|*) echo -e "\e[31;1mPlease enter ip address\e[0m"
@@ -352,16 +352,16 @@ case $ChoiceIPServer in
 esac
 echo
 
-echo -e "\e[34;1mPlease, enter cluster name (1 for QuanteoGroup, 2 for Quantaflow)\e[0m"
+echo -e "\e[34;1mPlease, enter cluster name (1 for Prod, 2 for Dev)\e[0m"
 
 read ChoiceGroup
 case $ChoiceGroup in
   1)
-     GroupSelect="QuanteoGroup"
+     GroupSelect="Prod"
      export GroupSelect
      ;;
   2)
-     GroupSelect="Quantaflow"
+     GroupSelect="Dev"
      export GroupSelect
      ;;
 esac
