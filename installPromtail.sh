@@ -254,28 +254,30 @@ clients:
 
 #Systemd
 
+#Systemd
+
 scrape_configs:
-  - job_name : journal
-    journal:
-      labels:
-        job: systemd-journal
-        hostname: $HOSTNAME
-    relabel_configs:
-      - source_labels : ['__journal__systemd_unit']
-        target_label: 'unit'
+ - job_name : journal
+   journal:
+     labels:
+       job: systemd-journal
+       hostname: $HOSTNAME
+   relabel_configs:
+     - source_labels : ['__journal__systemd_unit']
+       target_label: 'unit'
 
 #$GroupSelect
 
-scrape_configs:
-- job_name: system
-  static_configs:
-  - targets:
-      - localhost
-    labels:
-      job: varlogs
-      cluster: $GroupSelect
-      hostname: $HOSTNAME
-      __path__: /var/log/*log
+ - job_name: system
+   static_configs:
+   - targets:
+       - localhost
+     labels:
+       job: varlogs
+       cluster: $GroupSelect
+       hostname: $HOSTNAME
+       __path__: /var/log/*log
+       
 EOF
 echo_success
 }
