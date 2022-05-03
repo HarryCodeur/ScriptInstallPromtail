@@ -355,16 +355,16 @@ case $ChoiceIPServer in
 esac
 echo
 
-echo -e "\e[34;1mPlease, enter cluster name (1 for Prod, 2 for Dev)\e[0m"
+echo -e "\e[34;1mPlease, enter cluster name (1 for DMZ, 2 for Serv)\e[0m"
 
 read ChoiceGroup
 case $ChoiceGroup in
   1)
-     GroupSelect="Prod"
+     GroupSelect="DMZ"
      export GroupSelect
      ;;
   2)
-     GroupSelect="Dev"
+     GroupSelect="Serv"
      export GroupSelect
      ;;
 esac
